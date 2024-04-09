@@ -8,3 +8,4 @@ app.debug = True
 
 toolbar = DebugToolbarExtension(app)
 boggle_game = Boggle()
+
