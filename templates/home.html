@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>BOGGLE!</h1>
+<div class="container">
+    <div class="btn-group btn-matrix">
+{% for row in session['boggle_board'] %}
+    {% for char in row %}
+        <button type="button" class="btn btn-outline-primary">{{char}}</button>
+    {% endfor %}
+{% endfor %}
+    </div>
+</div>
+{% endblock %}
