@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<h1>BOGGLE!</h1>
-<div class="container">
+<h1 id="title">BOGGLE!</h1>
+<div class="container" id="board">
     <div class="btn-group btn-matrix">
 {% for row in session['boggle_board'] %}
     {% for char in row %}
-        <button type="button" class="btn btn-outline-primary">{{char}}</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" style="--bs-btn-font-size: 3rem;">{{char}}</button>
     {% endfor %}
 {% endfor %}
     </div>
 </div>
+
+<form>
+    <!-- <label for="guess">Guess:</label> -->
+    <input type="text" placeholder="Make your guess" id="guess_input">
+</form>
 {% endblock %}
+<script src="/static/app.js"></script>

@@ -1,20 +1,40 @@
 /* Arrange buttons */
+#board {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 75vh;
+}
+
+#title {
+	display: flex;
+	justify-content: center;
+}
+
+form{
+	display: flex;
+	justify-content: center;
+}
+
+/* label{
+	margin-right: 10px;
+} */
 .btn-matrix {
 	flex-wrap: wrap; /* allow buttons to jump to another row */
 }
 .btn-matrix > .btn {
 	width: 20%; /* force buttons to have the same width regardless of content */
 }
-.btn-matrix > .btn:nth-child(5n + 4) {
+.btn-matrix > .btn:nth-child(5n + 5 + 1) {
 	margin-left: 0; /* because .btn-group adds `margin-left: -1px;` to all buttons */
 }
-.btn-matrix > .btn:nth-child(n + 4) {
+.btn-matrix > .btn:nth-child(n + 5 + 1) {
 	margin-top: -1px; /* superimpose borders of the buttons from adjacent rows */
 }
 
 /* Fix border radius */
 .btn-matrix > .btn:first-child {
-	border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0px;
 }
 .btn-matrix > .btn:nth-child(5) {
 	border-top-right-radius: 4px !important;
@@ -29,5 +49,5 @@
 /* Decorations */
 .btn-matrix {
 	margin: 20px 0;
-	max-width: 500px;
+	max-width: 600px;
 }
