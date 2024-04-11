@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
+
 {% block content %}
 <h1 id="title">BOGGLE!</h1>
 <div class="container" id="board">
@@ -11,10 +12,13 @@
 {% endfor %}
     </div>
 </div>
-
-<form>
-    <!-- <label for="guess">Guess:</label> -->
-    <input type="text" placeholder="Make your guess" id="guess_input">
+<form method="POST" id="guess-form">
+    <input name="guess" type="text" placeholder="Make your guess" id="guess">
 </form>
+<p id="response">
+
+</p>
 {% endblock %}
+{% block script %}
 <script src="/static/app.js"></script>
+{% endblock %}
