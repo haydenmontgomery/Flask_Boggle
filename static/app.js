@@ -1,11 +1,19 @@
 let score = 0;
 let timeLeft = 60;
 let canGuess = true;
+let words = new Set();
 $(document).ready(function() {
+    console.log('readybbbbb');
     $('#guess-form').on('submit', async function(e) {
+        console.log('submit to me')
         e.preventDefault();
         const guess = $('#guess').val();
-        console.log(guess)
+        if (words.has(guess)){
+            $('#response').text(`${guess} is already guessed`);
+            return;
+        }
+
+        words.add(guess)
         const res = await axios.get("/guess", { params: { guess: guess }});
         if (canGuess == true){  
             if (res.data.result === "not-word") {
@@ -26,26 +34,25 @@ $(document).ready(function() {
         if (timeLeft <= 0) {
             clearInterval(time_counter);
             canGuess = false;
+            highScore();
         }
     }, 1000);
 });
 
 function setScore(value) {
     score += value;
-    console.log(score);
     $('#score').text(`Score: ${score}`);
 }
 
-function time_down() {
+async function time_down() {
     timeLeft -= 1;
-    console.log(timeLeft);
     showTime();
-/*     if (timeLeft <= 0) {
-        canGuess = false;
-    } */
 }
 
 function showTime() {
-    console.log(timeLeft);
     $('#timer').text(`Time: ${timeLeft}`);
+}
+
+async function highScore(){
+    const res = await axios.post("/high-score", { score: score });
 }

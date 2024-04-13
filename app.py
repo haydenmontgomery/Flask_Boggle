@@ -14,16 +14,28 @@ boggle_game = Boggle()
 
 
 
+
 @app.route('/')
 def home_page():
     board = boggle_game.make_board()
     session['boggle_board'] = board
-    return render_template('home.html')
+    highscore = session.get("highscore", 0)
+    numPlays = session.get("numPlays", 0)
+    return render_template('home.html', highscore = highscore, numPlays = numPlays)
 
 @app.route('/guess')
 def find_word():
     guess = request.args["guess"]
-    print(guess)
     board = session["boggle_board"]
     result = boggle_game.check_valid_word(board, guess)
     return jsonify({'result': result})
+
+@app.route('/high_score', methods=["POST"])
+def high_score():
+    score = request.json["score"]
+    highscore = session.get("highscore", 0)
+    numPlays = session.get("numPlays", 0)
+    session['numPlays'] = numPlays + 1
+    session['highscore'] = max(score, highscore)
+
+    return jsonify(newRecord=score > highscore)

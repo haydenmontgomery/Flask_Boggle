@@ -15,6 +15,7 @@ form{
 	align-self: center;
 	margin-top: 20px;
 	margin-left: 110px;
+	margin-right: 110px;
 	display: flex;
 	justify-content: center;
 }
@@ -23,6 +24,11 @@ form{
 	align-self: center;
 	margin-top: 30px;
 	margin-left: 500px;
+}
+
+#high-score {
+	margin-top: 30px;
+	margin-right: 400px;
 }
 
 p {
