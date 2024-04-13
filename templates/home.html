@@ -2,7 +2,10 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1 id="title">BOGGLE!</h1>
+<div class="top-container">
+    <h1 id="title">BOGGLE!</h1>
+    <p id="plays">Number of plays: {{numPlays}}</p>
+</div>
 <div class="container" id="board">
     <div class="btn-group btn-matrix">
 {% for row in session['boggle_board'] %}
@@ -19,8 +22,8 @@
     <form method="POST" id="guess-form">
         <input name="guess" type="text" autocomplete="off" placeholder="Make your guess" id="guess">
     </form>
-    <p id="high-score">
-        High Score: 0
+    <p id="high-score" class="bottom-right">
+        High Score: {{highscore}}
     </p>
 </div>
 

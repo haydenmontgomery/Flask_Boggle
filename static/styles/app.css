@@ -20,6 +20,15 @@ form{
 	justify-content: center;
 }
 
+.top-container{
+	margin-top: 10;
+	padding: 20px
+}
+#plays{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #timer {
 	align-self: center;
 	margin-top: 30px;
@@ -37,6 +46,7 @@ p {
 }
 
 .bottom-container {
+	padding: 10px;
 	display: flex;
 	align-items: center;
 }
