@@ -4,6 +4,14 @@ let canGuess = true;
 let words = new Set();
 $(document).ready(function() {
     $('#guess').focus();
+    $('button').click(function(){
+        console.log($(this).text());
+        current = $('#guess').val()
+        current += $(this).text().toLowerCase();;
+        $('#guess').val(current);
+        //$(this).blur();
+        $('#guess').focus();
+    });
     $('#guess-form').on('submit', async function(e) {
         e.preventDefault();
         if(canGuess){
